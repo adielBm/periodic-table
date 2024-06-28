@@ -76,7 +76,7 @@ export default function App() {
           opacity: '0.5',
           textAlign: 'center',
         }}
-          href="https://github.com/adielBm/" target="_blank" rel="noreferrer">Source Code</a>
+          href="https://github.com/adielBm/periodic-table" target="_blank" rel="noreferrer">Source Code</a>
       </div>
     </>
   )
