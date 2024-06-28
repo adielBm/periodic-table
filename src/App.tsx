@@ -8,8 +8,6 @@ export default function App() {
   const [showInfo, setShowInfo] = useState(false)
   const [element, setElement] = useState(data[1])
 
-
-
   const handleshowInfo = (num: number) => {
     setShowInfo(true)
     setElement(data[num])
@@ -38,15 +36,31 @@ export default function App() {
           <InfoBox element={element} /* handlecloseInfo={handlecloseInfo} */ />
         )}
         {/* Populating elements from 5-57 */}
-        {populateElements(5, 57)}
+        {populateElements(5, 20)}
+        <div></div>
+        {populateElements(21, 38)}
+        <div></div>
+        {populateElements(39, 56)}
+        <div
+          className={`element lanthanide`}
+        >
+            <div className='number'>57-70</div>
+        </div>        
         {/* Lanthanoids split 72-89 */}
-        {populateElements(72, 89)}
+        {populateElements(71, 88)}
+
+
+        <div
+          className={`element actinide`}
+        >
+            <div className='number'>89-102</div>
+        </div>        
         {/* Actinoids split 104-119*/}
-        {populateElements(104, 118)}
+        {populateElements(103, 118)}
         {/* Lanthenoids 58-71*/}
-        {populateElements(58, 71)}
+        {populateElements(57, 70)}
         {/* Actionoids 90-103 */}
-        {populateElements(90, 103)}
+        {populateElements(89, 102)}
       </div>
       <div
         style={{

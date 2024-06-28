@@ -441,7 +441,7 @@ a {
 #table {
   display: grid;
   gap: 0.3vw;
-  grid-template-columns: repeat(18, 1fr);
+  grid-template-columns: repeat(19, 1fr);
   grid-auto-rows: 9vh;
 }
 
@@ -524,13 +524,12 @@ a {
 /* Boron & Alumunium to the right  */
 .element-5,
 .element-13 {
-  grid-column-start: 13;
+  grid-column-start: 14;
 }
 
 /* Lanthinide & Actinoid split  */
-.element-58,
-.element-90 {
-  grid-column-start: 3;
+.element-57, .element-89 {
+  grid-column-start: 4;
 }
 
 /* I DID NOT KNOW THERE WAS 119th ONE! */
@@ -593,7 +592,7 @@ a {
 
 /* The Unknown Element  */
 .unknown {
-  background: #cff;
+  background: rgb(213, 213, 213);
 }
 
 /* Disable the top space for the first lathenide which sits inside the table  */
