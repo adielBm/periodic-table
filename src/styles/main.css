@@ -452,6 +452,7 @@ a {
 
 .number {
   position: absolute;
+  font-weight: bold;
 }
 
 .symbol {
@@ -472,14 +473,6 @@ a {
   margin: auto;
 }
 
-#element-box .number {
-  font-size: 1vw;
-}
-
-#element-box .element-name {
-  font-size: 1.5vw;
-}
-
 #element-box {
   grid-column: 3 / 5;
   grid-row: 2 / 4;
@@ -488,6 +481,7 @@ a {
   padding: 0.2vw;
   overflow: hidden;
   position: relative;
+  font-size: 1.3vw;
 }
 
 /* Information Table  */

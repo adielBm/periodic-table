@@ -8,14 +8,16 @@ export default function App() {
   const [showInfo, setShowInfo] = useState(false)
   const [element, setElement] = useState(data[1])
 
+
+
   const handleshowInfo = (num: number) => {
     setShowInfo(true)
     setElement(data[num])
   }
 
-/*   const handlecloseInfo = () => {
-    setShowInfo(false)
-  } */
+  /*   const handlecloseInfo = () => {
+      setShowInfo(false)
+    } */
 
   const populateElements = (start: number, end: number) => {
     const items = []

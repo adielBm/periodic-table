@@ -1,3 +1,9 @@
+import { IPA } from "../lib/ipa.js"
+
+const getIPA = (symbol: string) => {
+  return IPA.find((ipa: { symbol: string }) => ipa.symbol === symbol).IPA
+}
+
 export default function InfoBox({ element/* , handlecloseInfo */ }) {
   const {
     name,
@@ -41,9 +47,10 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
             <span className={`${category}`} style={{
               padding: '0 1.1vw',
             }}
-            
+
             >{category}</span>
           </div>
+          <div className='ipa' style={{color: 'gray'}}>/{getIPA(symbol)}/</div>
           {appearance && (
             <div className='appearance'>
               <strong>Appearance</strong> {appearance}
