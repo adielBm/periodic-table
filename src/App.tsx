@@ -13,9 +13,9 @@ export default function App() {
     setElement(data[num])
   }
 
-  const handlecloseInfo = () => {
+/*   const handlecloseInfo = () => {
     setShowInfo(false)
-  }
+  } */
 
   const populateElements = (start: number, end: number) => {
     const items = []
@@ -33,7 +33,7 @@ export default function App() {
         {populateElements(1, 4)}
         {/* Information Table */}
         {showInfo && (
-          <InfoBox element={element} handlecloseInfo={handlecloseInfo} />
+          <InfoBox element={element} /* handlecloseInfo={handlecloseInfo} */ />
         )}
         {/* Populating elements from 5-57 */}
         {populateElements(5, 57)}

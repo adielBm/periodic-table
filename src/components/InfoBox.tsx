@@ -1,11 +1,11 @@
-export default function InfoBox({ element, handlecloseInfo }) {
+export default function InfoBox({ element/* , handlecloseInfo */ }) {
   const {
     name,
-    summary,
+    // summary,
     symbol,
     category,
     number,
-    source,
+    // source,
     appearance,
     atomic_mass,
     molar_heat,
