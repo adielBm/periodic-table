@@ -3,6 +3,7 @@ import Element from "./Element"
 import "./styles/main.css"
 import { data } from "./lib/data"
 import InfoBox from "./components/InfoBox"
+import Groups from "./components/Groups"
 
 export default function App() {
   const [showInfo, setShowInfo] = useState(false)
@@ -35,6 +36,9 @@ export default function App() {
         {showInfo && (
           <InfoBox element={element} /* handlecloseInfo={handlecloseInfo} */ />
         )}
+
+        <Groups />
+
         {/* Populating elements from 5-57 */}
         {populateElements(5, 20)}
         <div></div>
@@ -44,8 +48,8 @@ export default function App() {
         <div
           className={`element lanthanide`}
         >
-            <div className='number'>57-70</div>
-        </div>        
+          <div className='number'>57-70</div>
+        </div>
         {/* Lanthanoids split 72-89 */}
         {populateElements(71, 88)}
 
@@ -53,8 +57,8 @@ export default function App() {
         <div
           className={`element actinide`}
         >
-            <div className='number'>89-102</div>
-        </div>        
+          <div className='number'>89-102</div>
+        </div>
         {/* Actinoids split 104-119*/}
         {populateElements(103, 118)}
         {/* Lanthenoids 58-71*/}

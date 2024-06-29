@@ -619,3 +619,15 @@ a {
   display: flex;
   align-items: center;
 }
+
+.group-btn {
+  grid-row: 2 / 4;
+  background: rgb(238, 238, 238);
+  writing-mode: vertical-rl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  font-weight: bold;
+  cursor: default;
+}
