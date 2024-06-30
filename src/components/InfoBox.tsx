@@ -18,6 +18,8 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
     density,
     melt,
     boil,
+    shells,
+    period,
   } = element
 
   return (
@@ -35,40 +37,41 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
         >
           Close [&times;]
         </div> */}
-        <div>
-          <div style={
-            {
-              display: 'flex',
-              gap: '1vw',
-              alignItems: 'center',
-            }
-          }>
-            <h1 className='big_title'>{name}</h1>
-            <span className={`${category}`} style={{
-              padding: '0 1.1vw',
-            }}
+        <div style={
+          {
+            display: 'flex',
+            gap: '1vw',
+            alignItems: 'center',
+          }
+        }>
+          <h1 className='big_title'>{name}</h1>
+          <span className={`${category}`} style={{
+            padding: '0 1.1vw',
+          }}
 
-            >{category}</span>
+          >{category}</span>
+        </div>
+        <div className='ipa' style={{ color: 'gray' }}>/{getIPA(symbol)}/</div>
+       
+        <div className='atom_info'>
+          <div> {density && <><strong>Density</strong> {density}<small> g/cm³</small></>}</div>
+          <div> {molar_heat && <><strong>Molar Heat</strong> {molar_heat}</>}</div>
+          <div> {melt && <><strong>Melt</strong> {melt}K</>}</div>
+          <div> {boil && <><strong>Boil</strong> {boil}K</>}</div>
+          <div> {period && <strong>Period</strong>} {period}</div>
+          <div> {shells && <><strong>Shells</strong> {shells.join(",")}</>}</div>
+        </div>
+        {appearance && (
+          <div className='appearance'>
+            <strong>Appearance</strong> {appearance}
           </div>
-          <div className='ipa' style={{color: 'gray'}}>/{getIPA(symbol)}/</div>
-          {appearance && (
-            <div className='appearance'>
-              <strong>Appearance</strong> {appearance}
-            </div>
-          )}
-          <div className='atom_info'>
-            <div><strong>Density</strong> {density}</div>
-            {molar_heat && <div><strong>Molar Heat</strong> {molar_heat}</div>}
-            {melt && <div><strong>Melt</strong> {melt}K</div>}
-            {boil && <div><strong>Boil</strong> {boil}K</div>}
-          </div>
-          {/*           <div>
+        )}
+        {/*           <div>
             {summary} ...{" "}
             <a target='_blank' href={source}>
               Source
             </a>
           </div> */}
-        </div>
       </div>
     </>
   )

@@ -30,6 +30,11 @@ export default function App() {
     <>
       <div id='table'>
         <h1 id="site-title">Periodic Table</h1>
+        {/* groups 1-18 */}
+
+        {Array.from(Array(18).keys()).map((i) => (
+          <div key={i} className={`group-num group-num-${i + 1}`}>{i + 1}</div>
+        ))}
         {/* Elements 1-4 */}
         {populateElements(1, 4)}
         {/* Information Table */}
@@ -46,6 +51,13 @@ export default function App() {
         <div></div>
         {populateElements(39, 56)}
         <div
+          style={{
+            width: '1.6vmax',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            writingMode: 'vertical-rl',
+          }}
           className={`element lanthanide`}
         >
           <div className='number'>57-70</div>
@@ -55,6 +67,13 @@ export default function App() {
 
 
         <div
+          style={{
+            width: '1.6vmax',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            writingMode: 'vertical-rl',
+          }}
           className={`element actinide`}
         >
           <div className='number'>89-102</div>
@@ -65,23 +84,26 @@ export default function App() {
         {populateElements(57, 70)}
         {/* Actionoids 90-103 */}
         {populateElements(89, 102)}
+
+        <div
+          style={{
+            gridColumn: '-3 / -1',
+            textAlign: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <a style={{
+            textDecoration: 'underline',
+            opacity: '0.5',
+            textAlign: 'center',
+          }}
+            href="https://github.com/adielBm/periodic-table" target="_blank" rel="noreferrer">Source Code</a>
+        </div>
+
       </div>
-      <div
-        style={{
-          position: 'fixed',
-          left: '50%',
-          bottom: '1vw',
-          transform: 'translate(-50%, -50%)',
-          margin: '0 auto'
-        }}
-      >
-        <a style={{
-          textDecoration: 'underline',
-          opacity: '0.5',
-          textAlign: 'center',
-        }}
-          href="https://github.com/adielBm/periodic-table" target="_blank" rel="noreferrer">Source Code</a>
-      </div>
+
     </>
   )
 }
