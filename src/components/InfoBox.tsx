@@ -46,7 +46,8 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
         }>
           <h1 className='big_title'>{name}</h1>
           <span className={`${category}`} style={{
-            padding: '0 1.1vw',
+            padding: '.4vw 1vw',
+            textTransform: 'capitalize'
           }}
 
           >{category}</span>

@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Element from "./Element"
-import "./styles/main.css"
+import "./styles/main.scss"
 import { data } from "./lib/data"
 import InfoBox from "./components/InfoBox"
-import Groups from "./components/Groups"
+import Filter from "./components/Filter"
 
 export default function App() {
   const [showInfo, setShowInfo] = useState(false)
@@ -42,7 +42,7 @@ export default function App() {
           <InfoBox element={element} /* handlecloseInfo={handlecloseInfo} */ />
         )}
 
-        <Groups />
+        <Filter />
 
         {/* Populating elements from 5-57 */}
         {populateElements(5, 20)}
@@ -52,7 +52,7 @@ export default function App() {
         {populateElements(39, 56)}
         <div
           style={{
-            width: '1.6vmax',
+            width: '1vmax',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -60,7 +60,7 @@ export default function App() {
           }}
           className={`element lanthanide`}
         >
-          <div className='number'>57-70</div>
+          57-70
         </div>
         {/* Lanthanoids split 72-89 */}
         {populateElements(71, 88)}
@@ -68,7 +68,7 @@ export default function App() {
 
         <div
           style={{
-            width: '1.6vmax',
+            width: '1vmax',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -76,7 +76,7 @@ export default function App() {
           }}
           className={`element actinide`}
         >
-          <div className='number'>89-102</div>
+          89-102
         </div>
         {/* Actinoids split 104-119*/}
         {populateElements(103, 118)}
