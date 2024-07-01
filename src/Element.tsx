@@ -5,8 +5,6 @@ type ElementProps = {
   showInfo: (num: number) => void
 }
 
-
-
 export default function Element({ num, showInfo }: ElementProps) {
   const element = data[num]
   return (
