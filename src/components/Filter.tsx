@@ -7,13 +7,13 @@ export default function Filter() {
 
     const allClasss = '.alkali, .alkaline, .transition, .post-transition, .lanthanide, .actinide, .metalloid, .noble, .polyatomic, .diatomic, .unknown'
     const metalsClasss = '.alkali, .alkaline, .transition, .post-transition, .lanthanide, .actinide'
-    const metalloidsClasss = '.metalloid'
+    // const metalloidsClasss = '.metalloid'
     const nonmetalsClasss = '.noble, .polyatomic, .diatomic'
 
 
     // By Blocks: s, p, d, f
     const sClasss = '.alkali, .alkaline, .element-1, .element-2';
-    const dClasss = '.transition, .element-57, .element-89';
+    const dClasss = '.transition';
     const fClasss = '.lanthanide, .actinide';
     const pClasss = '.noble:not(.element-2), .polyatomic, .diatomic:not(.element-1), .metalloid, .unknown, .post-transition';
 
