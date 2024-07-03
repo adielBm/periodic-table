@@ -52,7 +52,7 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
 
           >{category}</span>
         </div>
-        <div className='ipa' style={{ color: 'gray' }}>/{getIPA(symbol)}/</div>
+        <div className='ipa'>/{getIPA(symbol)}/</div>
        
         <div className='atom_info'>
           <div> {density && <><strong>Density</strong> {density}<small> g/cm³</small></>}</div>

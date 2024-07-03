@@ -1,11 +1,81 @@
 // Import Google Font
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+
+// Enable color scheme for light-dark() function
+:root {
+  color-scheme: light dark;
+}
 
 // Variables
 $font-family: Roboto, arial, sans-serif;
-$font-size-base: 1.9vmin;
-$header-bg: #333;
-$header-color: #fff;
+$font-size-base: 2vmin;
+
+// Element Categories
+$element-colors: (
+  noble: #ff93ef,
+  alkali: #ff6a6a,
+  alkaline: #ffb56a,
+  transition: #fffacd,
+  polyatomic: #8ecbe7,
+  diatomic: #78a2ff,
+  post-transition: #c5f4a4,
+  metalloid: #8ee7b3,
+  lanthanide: #d6acff,
+  actinide: #be6eff,
+  unknown: #c6c6c6,
+);
+
+$categories: ();
+@each $category, $color in $element-colors {
+  $dark-color: color-mix(in srgb, darken($color, 20%) 35%, black);
+  $categories: map-merge(
+    $categories,
+    (
+      $category: light-dark($color, $dark-color),
+    )
+  );
+}
+
+// Global Styles
+$white: #ececec;
+$light-gray: #dcdcdc;
+$gray: #c9c9c9;
+$dark-gray: #565656;
+$black: #262626;
+$text-color: light-dark(rgba($black, 0.85), rgba($white, 0.75));
+
+// Vanilla CSS Variables
+:root {
+  --white: $white;
+  --light-gray: $light-gray;
+  --gray: $gray;
+  --dark-gray: $dark-gray;
+  --black: $black;
+  --text-color: $text-color;
+}
+
+svg {
+  color: $text-color;
+  width: 3.5vmin;
+  height: 3.5vmin;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: light-dark($white, $black);
+  color: $text-color;
+}
+::selection {
+  background: light-dark($black, $white);
+  color: light-dark($white, $black);
+}
+
+@each $category, $color in $categories {
+  .#{$category} {
+    background: $color;
+  }
+}
 
 // Mixins
 @mixin flex-center {
@@ -25,13 +95,6 @@ body {
   font-family: $font-family;
   font-size: $font-size-base;
 }
-
-::selection {
-  background: #333;
-  color: #fff;
-}
-
-// ... (other normalize styles)
 
 // General Styles
 * {
@@ -55,39 +118,6 @@ a {
 
 .center {
   text-align: center;
-}
-
-// Header Styles
-.header {
-  padding: 10px;
-  background-color: $header-bg;
-  color: $header-color;
-
-  &__wrap {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-  }
-
-  &__logo {
-    font-weight: bold;
-  }
-
-  &__text {
-    color: rgba($header-color, 0.7);
-    transition: all 0.3s;
-    font-size: 14px;
-
-    &:hover {
-      color: $header-color;
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 }
 
 // Utility Classes
@@ -119,12 +149,13 @@ a {
   @include flex-center;
 
   &:hover {
-    background: #000;
-    color: #fff;
+    background: light-dark($black, $white);
+    color: light-dark($white, $black);
   }
 
   .number {
     position: absolute;
+    font-weight: bold;
     top: 3%;
     left: 3%;
   }
@@ -135,9 +166,9 @@ a {
     font-size: 3.5vmin;
   }
 
-  .element-name {
+  /* .element-name {
     letter-spacing: -0.2px;
-  }
+  } */
 }
 
 #element-box {
@@ -183,7 +214,7 @@ a {
 // Group and Element Positioning
 .group-num {
   display: flex;
-  color: gray;
+  color: light-dark($dark-gray, $light-gray);
   justify-content: center;
   align-items: flex-end;
 
@@ -223,45 +254,39 @@ a {
   }
 }
 
-// Element Categories
-$categories: (
-  noble: #ff6ae9,
-  alkali: #ff6a6a,
-  alkaline: #ffb56a,
-  transition: #fffbda,
-  polyatomic: #8ecbe7,
-  diatomic: #8eaae7,
-  post-transition: #b3e78e,
-  metalloid: #8ee7b3,
-  lanthanide: #c9f,
-  actinide: #ad87bd,
-  unknown: #e4e4e4,
-);
-
-@each $category, $color in $categories {
-  .#{$category} {
-    background: $color;
-  }
-}
-
-// Footer Styles
-.footer {
-  padding: 20px;
-  @include flex-center;
-  gap: 10px;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
-}
-
 // Group Button Styles
 .group-btn {
   cursor: default;
   font-size: 1.5vmax;
   font-weight: bold;
   @include flex-center;
-
   &:hover {
-    background: rgb(231, 231, 231);
+    background: light-dark($light-gray, $dark-gray);
   }
 }
+
+.ipa {
+  font-family: sans-serif;
+  color: light-dark(rgba($dark-gray, 0.6), rgba($light-gray, 0.6));
+  font-weight: bold;
+}
+
+.gh-dm {
+  grid-column: -3 / -1;
+  grid-row: 1 / 2;
+  @include flex-center;
+  gap: 2vmax;
+  text-align: center;
+  svg {
+    color: light-dark($dark-gray, $light-gray);
+  }
+  .theme-toggle-btn {
+    grid-area: 9 / 18 / 10 / 19;
+    border: none;
+    cursor: pointer;
+    background: none;
+    @include flex-center;
+  }
+}
+
+
