@@ -42,6 +42,7 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
             display: 'flex',
             gap: '1vw',
             alignItems: 'center',
+            height: '5vmin',
           }
         }>
           <h1 className='big_title'>{name}</h1>
