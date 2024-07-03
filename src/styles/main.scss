@@ -1,3 +1,7 @@
+// Periodic Table SCSS
+// This stylesheet defines the styles for a periodic table of elements.
+// It includes responsive design, light/dark mode support, and element categorization.
+
 // Import Google Font
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
 
@@ -44,37 +48,14 @@ $dark-gray: #565656;
 $black: #262626;
 $text-color: light-dark(rgba($black, 0.85), rgba($white, 0.75));
 
-// Vanilla CSS Variables
+// CSS Variables
 :root {
-  --white: $white;
-  --light-gray: $light-gray;
-  --gray: $gray;
-  --dark-gray: $dark-gray;
-  --black: $black;
-  --text-color: $text-color;
-}
-
-svg {
-  color: $text-color;
-  width: 3.5vmin;
-  height: 3.5vmin;
-}
-
-body {
-  font-family: $font-family;
-  font-size: $font-size-base;
-  background-color: light-dark($white, $black);
-  color: $text-color;
-}
-::selection {
-  background: light-dark($black, $white);
-  color: light-dark($white, $black);
-}
-
-@each $category, $color in $categories {
-  .#{$category} {
-    background: $color;
-  }
+  --white: #{$white};
+  --light-gray: #{$light-gray};
+  --gray: #{$gray};
+  --dark-gray: #{$dark-gray};
+  --black: #{$black};
+  --text-color: #{$text-color};
 }
 
 // Mixins
@@ -84,46 +65,31 @@ body {
   align-items: center;
 }
 
-// Normalize CSS (condensed for brevity)
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-
+// Global Styles
 body {
-  margin: 0;
   font-family: $font-family;
   font-size: $font-size-base;
-}
-
-// General Styles
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  background-color: light-dark($white, $black);
+  color: $text-color;
   margin: 0;
-  padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+svg {
+  color: $text-color;
+  width: 3.5vmin;
+  height: 3.5vmin;
 }
 
-.center {
-  text-align: center;
+::selection {
+  background: light-dark($black, $white);
+  color: light-dark($white, $black);
 }
 
-// Utility Classes
-.u-flex {
-  @include flex-center;
-  gap: 5px;
+// Element Categories
+@each $category, $color in $categories {
+  .#{$category} {
+    background: $color;
+  }
 }
 
 // Periodic Table Styles
@@ -138,15 +104,15 @@ a {
   grid-row: 1 / 2;
   text-align: center;
   font-size: 5vmax;
+  margin: 0;
 }
 
 .element {
+  @include flex-center;
+  flex-direction: column;
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  flex-direction: column;
-
-  @include flex-center;
 
   &:hover {
     background: light-dark($black, $white);
@@ -165,21 +131,17 @@ a {
     text-align: center;
     font-size: 3.5vmin;
   }
-
-  /* .element-name {
-    letter-spacing: -0.2px;
-  } */
 }
 
 #element-box {
   grid-column: 4 / 6;
   grid-row: 3 / 5;
+  @include flex-center;
   margin: 0;
   padding: 0.2vmax;
   overflow: hidden;
   position: relative;
   font-size: 1.3vmax;
-  @include flex-center;
 
   .symbol {
     font-size: 5vmax;
@@ -213,7 +175,7 @@ a {
 
 // Group and Element Positioning
 .group-num {
-  display: flex;
+  @include flex-center;
   color: light-dark($dark-gray, $light-gray);
   justify-content: center;
   align-items: flex-end;
@@ -254,12 +216,22 @@ a {
   }
 }
 
+// Utility Classes
+.u-flex {
+  @include flex-center;
+  gap: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
 // Group Button Styles
 .group-btn {
+  @include flex-center;
   cursor: default;
   font-size: 1.5vmax;
   font-weight: bold;
-  @include flex-center;
   &:hover {
     background: light-dark($light-gray, $dark-gray);
   }
@@ -280,13 +252,12 @@ a {
   svg {
     color: light-dark($dark-gray, $light-gray);
   }
-  .theme-toggle-btn {
-    grid-area: 9 / 18 / 10 / 19;
-    border: none;
-    cursor: pointer;
-    background: none;
-    @include flex-center;
-  }
 }
 
-
+.theme-toggle-btn {
+  grid-area: 9 / 18 / 10 / 19;
+  border: none;
+  cursor: pointer;
+  background: none;
+  @include flex-center;
+}
