@@ -97,6 +97,17 @@ svg {
   display: grid;
   grid-template-columns: repeat(2, 1fr) auto repeat(16, 1fr);
   grid-auto-rows: 10vmin;
+
+  @media (orientation: portrait) {
+    transform: rotate(90deg);
+    top: 0vmin;
+    left: 100%;
+    transform-origin: top left;
+    width: 100vh;
+    height: 100vw;
+    position: absolute;
+  }
+
 }
 
 #site-title {
@@ -114,7 +125,8 @@ svg {
   overflow: hidden;
   position: relative;
 
-  &:hover {
+  &:hover,
+  &.active {
     background: light-dark($black, $white);
     color: light-dark($white, $black);
   }
@@ -130,6 +142,12 @@ svg {
     font-weight: bold;
     text-align: center;
     font-size: 3.5vmin;
+  }
+
+  @media (orientation: portrait) {
+    .element-name {
+      display: none;
+    }
   }
 }
 
