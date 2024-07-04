@@ -143,12 +143,6 @@ svg {
     text-align: center;
     font-size: 3.5vmin;
   }
-
-  @media (orientation: portrait) {
-    .element-name {
-      display: none;
-    }
-  }
 }
 
 #element-box {
