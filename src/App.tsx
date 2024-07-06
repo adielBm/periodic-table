@@ -10,12 +10,19 @@ interface ElementData {
   name: string;
   symbol: string;
   category: string;
+  atomic_mass: number;
 }
 
 interface ElementProps {
   num: number;
   handleShowInfo: (num?: number, click?: boolean) => void;
   isActive: boolean;
+}
+
+/* function to keep only two digits after dot  */
+
+export function roundTo3(num: number) {
+  return +(Math.round(Number(num + "e+3")) + "e-3");
 }
 
 const Element: React.FC<ElementProps> = ({ num, handleShowInfo, isActive }) => {
@@ -31,6 +38,10 @@ const Element: React.FC<ElementProps> = ({ num, handleShowInfo, isActive }) => {
       <div className="number">{element.number}</div>
       <div className="symbol">{element.symbol}</div>
       <div className="element-name">{element.name}</div>
+
+      <div style={{
+        fontWeight: 'bold',
+      }} className="mass">{roundTo3(element.atomic_mass)}</div>
     </div>
   );
 };

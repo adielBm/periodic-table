@@ -1,4 +1,5 @@
 import { IPA } from "../lib/ipa.js"
+import { roundTo3 } from "../App.js"
 
 const getIPA = (symbol: string) => {
   return IPA.find((ipa: { symbol: string }) => ipa.symbol === symbol).IPA
@@ -26,7 +27,7 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
     <>
       <div id='element-box' className={`${category}`}>
         <div className='number'>{number}</div>
-        <div className="atomic-mass">{atomic_mass}</div>
+        <div className="atomic-mass">{roundTo3(atomic_mass)}</div>
         <div className='symbol'>{symbol}</div>
       </div>
       <div id='information'>
@@ -48,7 +49,8 @@ export default function InfoBox({ element/* , handlecloseInfo */ }) {
           <h1 className='big_title'>{name}</h1>
           <span className={`${category}`} style={{
             padding: '.4vw 1vw',
-            textTransform: 'capitalize'
+            textTransform: 'capitalize',
+            fontWeight: 'bold'
           }}
 
           >{category}</span>
