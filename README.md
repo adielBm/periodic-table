@@ -1,7 +1,11 @@
-Originally forked from https://github.com/tamalchowdhury/periodic-table. I've made some style changes I wanted. I hope you like it. I'd love to hear any suggestions or feedback you have 🤗
+# Periodic Table of Elements 🧪😎
 
-![](screenshot.png)
+- Originally forked from https://github.com/tamalchowdhury/periodic-table. 
+- The elements data is based on https://github.com/Bowserinator/Periodic-Table-JSON (licensed under https://creativecommons.org/licenses/by-sa/3.0/)
+- I've made some changes I wanted. (dark mode, style, layout, and more) I hope you like it 😊
+- I'd love to hear any suggestions or feedback you have 🤗
 
+![Screenshot](screenshot.png)
 
 
 
