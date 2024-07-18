@@ -29,7 +29,7 @@ function replaceWithSuperscripts(config: string): string {
   const regex = /(\d+)([sdpf])(\d+)/g;
 
   // Replace each part of the configuration with formatted version
-  return config.replace(regex, (match, n, l, p) => `${n}${l}${toSuperscript(p)}`);
+  return config.replace(regex, (_match, n, l, p) => `${n}${l}${toSuperscript(p)}`);
 
 }
 
