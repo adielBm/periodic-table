@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import "./styles/main.scss";
-import { data } from "./lib/data";
+import { data } from "./lib/data2";
 import InfoBox from "./components/InfoBox";
 import Filter from "./components/Filter";
 
@@ -19,10 +19,12 @@ interface ElementProps {
   isActive: boolean;
 }
 
-/* function to keep only two digits after dot  */
-
-export function roundTo3(num: number) {
-  return +(Math.round(Number(num + "e+3")) + "e-3");
+/* function to keep only two digits after dot  
+  and add parentheses if the number is an integer 
+*/
+export function roundTo3(num: number): string {
+  num = +(Math.round(Number(num + "e+3")) + "e-3");
+  return num % 1 === 0 ? `(${num})` : `${num}`;
 }
 
 const Element: React.FC<ElementProps> = ({ num, handleShowInfo, isActive }) => {
